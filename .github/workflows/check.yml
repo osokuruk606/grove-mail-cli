@@ -1,0 +1,23 @@
+name: CLI checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Install pinned reference CLI
+        run: npm install --prefix .private/reference --no-audit --no-fund agentmail-cli@1.5.0
+      - run: npm test
+        env:
+          AGENTMAIL_CLI: ${{ github.workspace }}/.private/reference/node_modules/.bin/agentmail
+      - run: npm run cli:capture-operations
+        env:
+          AGENTMAIL_CLI: ${{ github.workspace }}/.private/reference/node_modules/.bin/agentmail
+      - run: npm run verify:package

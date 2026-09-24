@@ -1,0 +1,44 @@
+{
+  "name": "@opengrove/grove-mail-cli",
+  "version": "0.2.1",
+  "private": true,
+  "description": "Standalone command-line client for Grove Mail",
+  "type": "module",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=24"
+  },
+  "bin": {
+    "grove-mail": "dist/cli.js"
+  },
+  "files": [
+    "dist/",
+    "docs/reference/*.json",
+    "README.md",
+    "docs/usage.md",
+    "THIRD_PARTY_NOTICES.md",
+    "docs/reference/README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test test/*.test.ts",
+    "verify:package": "node scripts/verify-package.mjs",
+    "cli:capture-operations": "tsx scripts/capture-cli-operations.ts",
+    "cli:capture-discovery": "node scripts/capture-cli-discovery.mjs",
+    "cli:audit": "node scripts/audit-cli-source.mjs"
+  },
+  "dependencies": {
+    "dotenv": "18.0.3",
+    "jmespath": "0.16.0",
+    "undici": "8.11.0",
+    "yaml": "2.9.1"
+  },
+  "devDependencies": {
+    "@types/jmespath": "0.15.2",
+    "@types/node": "26.6.2",
+    "tsx": "4.23.15",
+    "typescript": "7.0.2"
+  }
+}
