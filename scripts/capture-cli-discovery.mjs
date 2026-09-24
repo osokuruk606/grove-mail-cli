@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// SPDX-FileCopyrightText: 2026 Grove Mail contributors
+// SPDX-License-Identifier: Apache-2.0
 // Offline, pinned CLI metadata. Uses isolated home/config and no real credential sources.
 import { execFileSync } from 'node:child_process';
 import { existsSync, writeFileSync, mkdtempSync, rmSync } from 'node:fs';

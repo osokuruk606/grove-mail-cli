@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// SPDX-FileCopyrightText: 2026 Grove Mail contributors
+// SPDX-License-Identifier: Apache-2.0
 // Read-only comparison of the pinned official CLI and Grove against loopback fixtures.
 // Never loads project credentials or calls an external service.
 import { createServer } from 'node:http';

@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# SPDX-FileCopyrightText: 2026 Grove Mail contributors
+# SPDX-License-Identifier: Apache-2.0
 set -euo pipefail
 project=$(cd -- "$(dirname -- "$0")/.." && pwd)
 destination="${GROVE_MAIL_BIN_DIR:-$HOME/.local/bin}"

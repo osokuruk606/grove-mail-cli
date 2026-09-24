@@ -1,6 +1,7 @@
 # Grove Mail CLI
 
 [![CLI checks](https://github.com/osokuruk606/grove-mail-cli/actions/workflows/check.yml/badge.svg)](https://github.com/osokuruk606/grove-mail-cli/actions/workflows/check.yml)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](LICENSE)
 
 面向 Agent 和开发者的邮件命令行工具。通过 Grove Mail API 管理邮箱、收发邮件、处理会话和附件，并持续接收新邮件事件。
 
@@ -238,4 +239,4 @@ Grove Mail CLI 独立实现，使用 AgentMail CLI 1.5.0 的公开接口描述�
 
 本项目不是 AgentMail 官方客户端，也不隶属于 AgentMail。第三方接口描述的来源与归属见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 
-当前 Grove Mail CLI 尚未选择开源许可证，`package.json` 标记为 `UNLICENSED`。仓库可见性与代码的使用、修改、分发许可是不同的设置；正式开源时会明确项目许可，并保留第三方材料的声明。
+Grove Mail CLI 的原创代码和文档采用 **Apache License 2.0**，详见 [LICENSE](LICENSE) 和 [NOTICE](NOTICE)。第三方接口快照和依赖保留各自的许可与归属，详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。此许可不授予托管服务的账号、访问权限或商标使用权。

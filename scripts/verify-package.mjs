@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// SPDX-FileCopyrightText: 2026 Grove Mail contributors
+// SPDX-License-Identifier: Apache-2.0
 import assert from 'node:assert/strict';
 import { execFileSync, spawn } from 'node:child_process';
 import { createServer } from 'node:http';
@@ -22,13 +24,15 @@ const server = createServer(async (req, res) => {
 try {
   const [archive] = JSON.parse(execFileSync(npm, ['pack', '--json', '--pack-destination', temporary], { cwd: root, encoding: 'utf8' }));
   const paths = archive.files.map(file => file.path);
-  for (const file of ['dist/cli.js', 'dist/protocol.js', 'docs/reference/grove-mail-api.json', 'docs/reference/agentmail-openapi-1.5.0.json', 'docs/reference/agentmail-cli-discovery-1.5.0.json']) assert.ok(paths.includes(file), `Missing runtime asset: ${file}`);
-  assert.ok(paths.every(path => path.startsWith('dist/') || path.startsWith('docs/reference/') && path.endsWith('.json') || ['package.json', 'README.md', 'docs/reference/README.md', 'docs/usage.md', 'THIRD_PARTY_NOTICES.md'].includes(path)), 'Unexpected packaged file');
+  for (const file of ['dist/cli.js', 'dist/protocol.js', 'docs/reference/grove-mail-api.json', 'docs/reference/agentmail-openapi-1.5.0.json', 'docs/reference/agentmail-cli-discovery-1.5.0.json', 'LICENSE', 'NOTICE', 'THIRD_PARTY_NOTICES.md']) assert.ok(paths.includes(file), `Missing runtime asset: ${file}`);
+  assert.ok(paths.every(path => path.startsWith('dist/') || path.startsWith('docs/reference/') && path.endsWith('.json') || ['package.json', 'README.md', 'LICENSE', 'NOTICE', 'docs/reference/README.md', 'docs/usage.md', 'THIRD_PARTY_NOTICES.md'].includes(path)), 'Unexpected packaged file');
   assert.ok(!paths.some(path => /server|deploy|sqlite|mailcow|private|\.env/.test(path)), 'Server/private files in package');
   const install = join(temporary, 'consumer'); mkdirSync(install);
   execFileSync(npm, ['install', '--prefix', install, '--omit=dev', '--ignore-scripts', '--no-audit', '--no-fund', join(temporary, archive.filename)], { cwd: install, stdio: 'pipe' });
   const entry = join(install, 'node_modules/@opengrove/grove-mail-cli/dist/cli.js');
   const manifest = JSON.parse(readFileSync(join(install, 'node_modules/@opengrove/grove-mail-cli/package.json'), 'utf8'));
+  assert.equal(manifest.license, 'Apache-2.0');
+  for (const file of ['LICENSE', 'NOTICE', 'THIRD_PARTY_NOTICES.md']) assert.deepEqual(readFileSync(join(install, 'node_modules/@opengrove/grove-mail-cli', file)), readFileSync(join(root, file)), `Installed license material differs: ${file}`);
   assert.deepEqual(Object.keys(manifest.dependencies).sort(), ['dotenv', 'jmespath', 'undici', 'yaml']);
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
   const base = `http://127.0.0.1:${server.address().port}`;

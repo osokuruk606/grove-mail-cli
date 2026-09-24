@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: 2026 Grove Mail contributors
+// SPDX-License-Identifier: Apache-2.0
 import { fileURLToPath } from 'node:url';
 import { spawn } from 'node:child_process';
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';

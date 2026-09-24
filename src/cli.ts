@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// SPDX-FileCopyrightText: 2026 Grove Mail contributors
+// SPDX-License-Identifier: Apache-2.0
 import { readFileSync, writeFileSync, mkdirSync, existsSync, chmodSync, renameSync, unlinkSync } from 'node:fs';
 import { homedir } from 'node:os';
 import { join, dirname, basename } from 'node:path';

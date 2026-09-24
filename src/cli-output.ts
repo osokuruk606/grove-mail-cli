@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: 2026 Grove Mail contributors
+// SPDX-License-Identifier: Apache-2.0
 import jmespath from 'jmespath';
 import { stringify } from 'yaml';
 export const formats = ['json', 'jsonl', 'raw', 'http', 'table', 'csv', 'yaml'];

@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: 2026 Grove Mail contributors
+// SPDX-License-Identifier: Apache-2.0
 import { readFileSync } from 'node:fs';
 
 // Versioned public request schema, exported by the Grove Mail service.

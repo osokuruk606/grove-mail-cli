@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: 2026 Grove Mail contributors
+// SPDX-License-Identifier: Apache-2.0
 import { readFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { parse as parseDotenv } from 'dotenv';

@@ -1,0 +1,13 @@
+Grove Mail CLI
+Copyright 2026 Grove Mail contributors
+
+Original Grove Mail CLI code and documentation are licensed under the
+Apache License, Version 2.0. See LICENSE.
+
+This distribution includes AgentMail OpenAPI and command-discovery reference
+data from agentmail-to/agentmail-cli version 1.5.0. These materials retain
+their upstream attribution and license terms; see THIRD_PARTY_NOTICES.md.
+
+Grove Mail CLI is independently maintained and is not an official AgentMail
+client. This notice does not imply endorsement by AgentMail or the Apache
+Software Foundation.

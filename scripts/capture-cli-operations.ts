@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// SPDX-FileCopyrightText: 2026 Grove Mail contributors
+// SPDX-License-Identifier: Apache-2.0
 // Every pinned operation against loopback. This verifies CLI construction, never backend semantics.
 import { createServer } from 'node:http';
 import { spawn, execFileSync } from 'node:child_process';
