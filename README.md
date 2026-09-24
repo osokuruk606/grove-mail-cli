@@ -67,6 +67,8 @@ Agent 或 CI 可以通过 `GROVE_MAIL_API_KEY` 环境变量提供 key，优先�
 
 ### 申请新邮箱
 
+当前 `mail.openmau.com` 关闭自助注册，新用户请联系管理员获取邮箱和 API key。已有账号照常登录使用。注册命令保留用于明确启用该功能的其他 Grove 部署；服务关闭注册时返回 `403 / signup_disabled`。
+
 在已启用 Agent 注册的 Grove 服务上：
 
 ```sh
