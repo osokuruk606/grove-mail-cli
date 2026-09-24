@@ -21,7 +21,7 @@
 
 ## 安装
 
-需要 **Node.js 24 或更新版本**、npm 和 Git。当前仓库为私有，克隆需要 GitHub 访问权限；尚未发布 npm registry 包或预编译 Release。
+需要 **Node.js 24 或更新版本**、npm 和 Git。可直接从公开仓库获取源码；尚未发布 npm registry 包或预编译 Release。
 
 ### 从源码安装（macOS / Linux）
 
